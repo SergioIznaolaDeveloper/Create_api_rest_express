@@ -7,8 +7,9 @@ const port = process.env.PORT;
 const bodyParser = require("body-parser");
 app.use(express.json());
 app.use(bodyParser.json());
-app.use("/api",filmRouter)
 
+
+app.use("/api",filmRouter)
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
