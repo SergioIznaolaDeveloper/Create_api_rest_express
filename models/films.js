@@ -1,42 +1,30 @@
-const fetch = require("fetch");
-const env = require("dotenv").config();
-const apiKey = process.env.API_KEY;
+const fetch = require("../utiles/fetch.js");
+var express = require('express')
+var app = express()
 
-const getDefaultFilm = async () => {
+
+const getDefaultFilm = async (req, res) => {
   try {
-    let response = await fetch(
-      `http://www.omdbapi.com/?i=tt3896198&apikey=${apiKey}`
-    ); //{}
-    let title = await response.json(); //{}
-    console.log(title);
-    return title;
+    const fetchRes = await fetch.getfetchDefault(req, res);
+    return fetchRes;
+  } catch (err) {
+    console.log(err);
+    throw err;
+  }
+};
+const getFilm = async (req, res) => {
+  try {
+    const fetchTitle = await fetch.getfetchByTitle(req, res);
+    return fetchTitle;
   } catch (err) {
     console.log(err);
     throw err;
   }
 };
 
-// app.get("/films/:title?", async (req, res) => {
-//   let defaultFilm = req.params.title || "Sergio";
-//   try {
-//     let response = await fetch(
-//       `https://www.omdbapi.com/?t=${defaultFilm}&apikey=${apiKey}`
-//     ); //{}
-//     let title = await response.json(); //{}
-//     res.render("films", { films: title }); // Pinta datos en el pug
-//   } catch (error) {
-//     console.log(`ERROR: ${error.stack}`);
-//   }
-// });
-// /* recoger datos de input y redirección*/
-// app.post("/", function (req, res) {
-//   let film = req.body.films;
-//   console.log(film);
-//   res.redirect(`http://localhost:3000/films/${film}`);
-// });
-
 const entries = {
   getDefaultFilm,
+  getFilm
 };
 
 module.exports = entries;
