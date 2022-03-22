@@ -1,15 +1,10 @@
-app.post("/film/", function (req, res) {
-    res.send("[POST]Saludos desde express");
-  });
-  app.get("/film/:title", function (req, res) {
-    res.send("[GET]Saludos desde express");
-  });
-  app.put("/film/", function (req, res) {
-    res.send("[POST]Saludos desde express");
-  });
-  app.delete("/film/", function (req, res) {
-    res.send("[GET]Saludos desde express");
-  });
-  app.listen(3000, () => {
-    console.log("El servidor está inicializado en el puerto 3000");
-  });
+const express = require("express");
+const filmTitel = require("../controller/films");
+const router = express.Router();
+
+// router.post("/film/", filmTitel.createFilm);
+router.get("/film", filmTitel.getFilms);
+// router.put("/film/", filmTitel.updateFilm);
+// router.delete("/film/", filmTitel.deleteFilm);
+
+module.exports = router;
