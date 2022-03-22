@@ -1,0 +1,23 @@
+{
+  "name": "create_api_rest_express",
+  "version": "1.0.0",
+  "description": "Crea una aplicación de películas para hacer una API REST con Express. P",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SergioIznaolaDeveloper/Create_api_rest_express.git"
+  },
+  "author": "Sergio Iznaola",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SergioIznaolaDeveloper/Create_api_rest_express/issues"
+  },
+  "homepage": "https://github.com/SergioIznaolaDeveloper/Create_api_rest_express#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
