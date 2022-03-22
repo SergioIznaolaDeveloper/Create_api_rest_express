@@ -1,10 +1,13 @@
 const db = require("../models/films.js");
 
 const getFilms = async (req, res) => {
-  // /entries?email=alejandru@thebridgeschool.es
-    const entries = await db.getDefaultFilm();
-    res.status(200).json(entries); // Pinta datos en el pug
-
+    if (req.params.title){
+        const entries2 = await db.getFilm(req, res);
+        res.status(200).json(entries2);
+    } else {
+    const entries = await db.getDefaultFilm(req, res);
+    res.status(200).json(entries);
+    }
 };
 
 const filmTitel = {
